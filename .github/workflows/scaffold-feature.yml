@@ -1,0 +1,21 @@
+name: Scaffold Feature Module
+
+on:
+  workflow_dispatch:
+    inputs:
+      module_name:
+        description: 'Module Name (e.g., lottery-draw)'
+        required: true
+      target_worker:
+        description: 'Target Worker'
+        required: true
+        default: 'telegram-bot'
+
+jobs:
+  scaffold:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scaffold Feature via CLI
+        run: |
+          npx tsx scripts/scaffold/generate-module.ts --name=${{ github.event.inputs.module_name }} --worker=${{ github.event.inputs.target_worker }}

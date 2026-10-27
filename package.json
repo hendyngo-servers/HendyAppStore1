@@ -1,0 +1,36 @@
+{
+  "name": "hendy-app-store-bot-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "@packages/types": "./packages/types/src/index.ts",
+    "@packages/feature-flags": "./packages/feature-flags/src/index.ts",
+    "@packages/logger": "./packages/logger/src/index.ts"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "tsx --test workers/platform-api/src/__tests__/api.test.ts workers/telegram-bot/src/__tests__/bot.test.ts packages/feature-flags/src/evaluator.test.ts",
+    "start": "vite"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.16.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/node": "^22.13.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0"
+  }
+}

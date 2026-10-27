@@ -1,0 +1,15 @@
+import { DatabaseService } from '../services/database';
+import { verifyApiRequestAuth } from '../auth';
+
+export async function handle{{pascalCase name}}(request: Request, env?: any): Promise<Response> {
+  const url = new URL(request.url);
+  const db = DatabaseService.getInstance(env?.DB);
+
+  if (request.method === 'GET') {
+    return new Response(JSON.stringify({ message: 'Hello from {{name}} module' }), {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
+}

@@ -1,0 +1,9 @@
+{
+  "name": "HendyAppStoreBot Server & Workers",
+  "description": "Enterprise Cloudflare Workers server architecture for HendyAppStore Telegram ecosystem featuring Edge Router, Platform API, Telegram Bot Worker, Queue Processor, and Self-Healing Bot with D1 and KV.",
+  "version": "1.0.0",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

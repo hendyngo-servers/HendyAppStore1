@@ -1,0 +1,28 @@
+name: Deploy Telegram Mini App
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/mini-app/**'
+
+jobs:
+  deploy-miniapp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build Mini App
+        run: |
+          cd apps/mini-app
+          npm install
+          npm run build
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: hendy-telegram-miniapp
+          directory: apps/mini-app/dist

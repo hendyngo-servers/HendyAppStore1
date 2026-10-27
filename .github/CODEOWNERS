@@ -1,0 +1,4 @@
+* @HendyAppStoreDev
+/workers/ @HendyAppStoreDev/backend-leads
+/database/ @HendyAppStoreDev/database-admins
+/packages/ @HendyAppStoreDev/core-maintainers

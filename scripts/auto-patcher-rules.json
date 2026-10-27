@@ -1,0 +1,25 @@
+{
+  "rules": [
+    {
+      "id": "rule_01",
+      "target": "telegram-rate-limit",
+      "pattern": "429 Too Many Requests",
+      "action": "exponential_backoff_increase",
+      "maxDelaySec": 30
+    },
+    {
+      "id": "rule_02",
+      "target": "d1-deadlock",
+      "pattern": "SQLITE_BUSY",
+      "action": "retry_with_jitter",
+      "maxRetries": 5
+    },
+    {
+      "id": "rule_03",
+      "target": "perimeter-guard",
+      "pattern": "error_rate > 5%",
+      "action": "trigger_self_healing_rollback",
+      "coolDownMinutes": 15
+    }
+  ]
+}

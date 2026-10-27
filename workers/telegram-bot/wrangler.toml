@@ -1,0 +1,19 @@
+name = "hendy-telegram-bot"
+main = "src/index.ts"
+compatibility_date = "2024-10-01"
+
+[vars]
+TELEGRAM_BOT_USERNAME = "HendyAppStoreBot"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "hendy_appstore_db"
+database_id = "d1-prod-hendy-001"
+
+[[kv_namespaces]]
+binding = "KV_MAINTENANCE"
+id = "kv_maint_001"
+
+[[kv_namespaces]]
+binding = "KV_BOT_CONFIG"
+id = "kv_bot_001"

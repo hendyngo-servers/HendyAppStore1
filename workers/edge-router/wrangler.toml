@@ -1,0 +1,17 @@
+name = "hendy-edge-router"
+main = "src/index.ts"
+compatibility_date = "2024-10-01"
+
+[kv_namespaces]
+[[kv_namespaces]]
+binding = "KV_MAINTENANCE"
+id = "kv_maintenance_001"
+
+[services]
+[[services]]
+binding = "PLATFORM_API_SERVICE"
+service = "hendy-platform-api"
+
+[[services]]
+binding = "TELEGRAM_BOT_SERVICE"
+service = "hendy-telegram-bot"

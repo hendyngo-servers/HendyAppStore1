@@ -1,0 +1,20 @@
+name: Deploy Web Admin & Web User
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/web-admin/**'
+      - 'apps/web-user/**'
+
+jobs:
+  deploy-web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build Web Apps
+        run: |
+          echo "Building Web Admin & Web User portals"

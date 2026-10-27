@@ -1,0 +1,27 @@
+name: Deploy Cloudflare Workers
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workers/**'
+      - 'packages/**'
+      - 'database/**'
+
+jobs:
+  deploy-workers:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        worker: [edge-router, platform-api, telegram-bot, queue-processor, self-healing-bot]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Deploy Worker to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: 'workers/${{ matrix.worker }}'

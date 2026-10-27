@@ -1,0 +1,23 @@
+name = "hendy-queue-processor"
+main = "src/index.ts"
+compatibility_date = "2024-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "hendy_appstore_db"
+database_id = "d1-prod-hendy-001"
+
+[[queues.consumers]]
+queue = "bank-sync-queue"
+max_batch_size = 10
+max_batch_timeout = 5
+
+[[queues.consumers]]
+queue = "telegram-broadcast-queue"
+max_batch_size = 5
+max_batch_timeout = 10
+
+[[queues.consumers]]
+queue = "ota-build-queue"
+max_batch_size = 1
+max_batch_timeout = 30

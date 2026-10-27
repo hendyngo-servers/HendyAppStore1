@@ -1,0 +1,14 @@
+import React from 'react';
+
+export interface {{pascalCase name}}Props {
+  title?: string;
+  className?: string;
+}
+
+export const {{pascalCase name}}: React.FC<{{pascalCase name}}Props> = ({ title = '{{name}}', className = '' }) => {
+  return (
+    <div className={`p-4 rounded-xl bg-slate-900 border border-slate-800 ${className}`}>
+      <h3 className="text-sm font-semibold text-slate-200">{title}</h3>
+    </div>
+  );
+};

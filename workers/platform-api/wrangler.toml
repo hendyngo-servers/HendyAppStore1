@@ -1,0 +1,35 @@
+name = "hendy-platform-api"
+main = "src/index.ts"
+compatibility_date = "2024-10-01"
+
+[vars]
+ENVIRONMENT = "production"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "hendy_appstore_db"
+database_id = "d1-prod-hendy-001"
+
+[[kv_namespaces]]
+binding = "KV_FEATURE_FLAGS"
+id = "kv_ff_001"
+
+[[kv_namespaces]]
+binding = "KV_MAINTENANCE"
+id = "kv_maint_001"
+
+[[kv_namespaces]]
+binding = "KV_BOT_CONFIG"
+id = "kv_bot_001"
+
+[[queues.producers]]
+binding = "QUEUE_BANK_SYNC"
+queue = "bank-sync-queue"
+
+[[queues.producers]]
+binding = "QUEUE_BROADCAST"
+queue = "telegram-broadcast-queue"
+
+[[queues.producers]]
+binding = "QUEUE_OTA_BUILD"
+queue = "ota-build-queue"

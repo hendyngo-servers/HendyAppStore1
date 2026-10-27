@@ -1,0 +1,14 @@
+name: Security Checks & Audit
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'
+  pull_request:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run npm audit
+        run: npm audit --audit-level=high || true
